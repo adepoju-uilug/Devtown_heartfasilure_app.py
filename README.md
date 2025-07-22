@@ -1,0 +1,1 @@
+This project trains and evaluates multiple machine learning models on a heart failure dataset using scikit-learn. The goal is to identify the best-performing model for predicting heart failure. After comparison, the Random Forest Classifier was selected as the most effective model. The final model was tuned using the following hyperparameters to optimize performance.
