@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heart Failure Risk Predictor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f9ff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      padding: 12px;
+      font-size: 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Heart Failure Risk Prediction</h2>
+    <form action="/predict" method="post">
+      <input type="number" name="age" placeholder="Age" required>
+      <input type="number" name="anaemia" placeholder="Anaemia (0 or 1)" required>
+      <input type="number" name="creatinine_phosphokinase" placeholder="Creatinine Phosphokinase" required>
+      <input type="number" name="diabetes" placeholder="Diabetes (0 or 1)" required>
+      <input type="number" name="ejection_fraction" placeholder="Ejection Fraction (%)" required>
+      <input type="number" name="high_blood_pressure" placeholder="High Blood Pressure (0 or 1)" required>
+      <input type="number" name="platelets" placeholder="Platelets" required>
+      <input type="number" name="serum_creatinine" placeholder="Serum Creatinine" step="0.1" required min="0.1" max="15.0" required>
+      <input type="number" name="serum_sodium" placeholder="Serum Sodium" required>
+      <input type="number" name="sex" placeholder="Sex (0 for Female, 1 for Male)" required>
+      <input type="number" name="smoking" placeholder="Smoking (0 or 1)" required>
+      <input type="number" name="time" placeholder="Follow-up Time (days)" required>
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+      <div class="result">{{ result }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
